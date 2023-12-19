@@ -8,7 +8,7 @@ vim.keymap.set("n", "<leader>w=", "<C-w>=", { desc = "equal size splits" })
 vim.keymap.set("n", "<leader>wm", "<cmd>MaximizerToggle<cr>", { desc = "maximize split" })
 
 -- nvim-tmux
-vim.keymap.set("n", "<C-h>", ":NvimTmuxNavigateLeft<cr>", { silent = true })
-vim.keymap.set("n", "<C-j>", ":NvimTmuxNavigateDown<cr>", { silent = true })
-vim.keymap.set("n", "<C-k>", ":NvimTmuxNavigateUp<cr>", { silent = true })
-vim.keymap.set("n", "<C-l>", ":NvimTmuxNavigateRight<cr>", { silent = true })
+vim.keymap.set("n", "<C-h>", "<cmd>NvimTmuxNavigateLeft<cr>", { silent = true })
+vim.keymap.set("n", "<C-j>", "<cmd>NvimTmuxNavigateDown<cr>", { silent = true })
+vim.keymap.set("n", "<C-k>", "<cmd>NvimTmuxNavigateUp<cr>", { silent = true })
+vim.keymap.set("n", "<C-l>", "<cmd>NvimTmuxNavigateRight<cr>", { silent = true })
