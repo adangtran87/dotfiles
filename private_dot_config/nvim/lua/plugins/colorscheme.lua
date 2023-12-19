@@ -8,7 +8,7 @@ return {
 				strings = false,
 				emphasis = true,
 				comments = false,
-				operators = true,
+				operators = false,
 				folds = true,
 			},
 			contrast = "soft",
