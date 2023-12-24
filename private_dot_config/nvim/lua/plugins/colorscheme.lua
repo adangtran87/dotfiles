@@ -14,6 +14,6 @@ return {
 			contrast = "soft",
 		})
 		-- load the colorscheme here
-		vim.cmd("colorscheme gruvbox")
+		vim.cmd("colorscheme catppuccin")
 	end,
 }
