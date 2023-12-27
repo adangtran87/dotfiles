@@ -1,3 +1,55 @@
+-- Customize the popup
+--
+---@param name string top name
+local function popup_custom(name)
+	return {
+		position = "50%",
+		size = 60,
+		border = {
+			style = "rounded",
+			text = {
+				top = name,
+				top_align = "center",
+			},
+		},
+		win_options = {
+			winhighlight = "Normal:Normal, FloatBorder:Normal",
+		},
+	}
+end
+
+-- Customize popup
+--
+---@param submit_fn function submit function
+---@param popup table Popup options
+local function zk_popup(submit_fn, popup)
+	local Input = require("nui.input")
+	local event = require("nui.utils.autocmd").event
+	local zk = require("zk")
+	local input = Input(popup, {
+		prompt = "> ",
+		default_value = "",
+		on_close = function()
+			return nil
+		end,
+		on_submit = function(value)
+			if value ~= "" then
+				submit_fn(value)
+			end
+		end,
+	})
+	input:mount()
+	input:on(event.BufLeave, function()
+		input:unmount()
+	end)
+	input:map("n", "<Esc>", function()
+		input:unmount()
+	end, { noremap = true })
+	input:map("i", "<Esc>", function()
+		input:unmount()
+	end, { noremap = true })
+end
+
 return {
 	"mickael-menu/zk-nvim",
 	config = function()
@@ -51,49 +103,34 @@ return {
 			z = {
 				name = "zk",
 				d = { "<cmd>ZkDaily<cr>", "Open daily note" },
-				t = { "<cmd>ZkTodo<cr>", "Open todo note" },
+				f = {
+					function()
+						zk_popup(function(value)
+							require("zk.commands").get("ZkNotes")({ sort = { "modified" }, match = { value } })
+						end, popup_custom("Search"))
+					end,
+					"Find notes",
+				},
 				m = {
 					function()
-						local Input = require("nui.input")
-						local event = require("nui.utils.autocmd").event
-						local popup_options = {
-							position = "50%",
-							size = 60,
-							border = {
-								style = "rounded",
-								text = {
-									top = "Meeting Name",
-									top_align = "center",
-								},
-							},
-							win_options = {
-								winhighlight = "Normal:Normal, FloatBorder:Normal",
-							},
-						}
-						local input = Input(popup_options, {
-							prompt = "> ",
-							default_value = "",
-							on_close = function()
-								return nil
-							end,
-							on_submit = function(value)
-								if value ~= "" then
-									zk.new({ dir = "meetings", title = value })
-								end
-							end,
-						})
-						input:mount()
-						input:on(event.BufLeave, function()
-							input:unmount()
-						end)
-						input:map("n", "<Esc>", function()
-							input:unmount()
-						end, { noremap = true })
+						zk_popup(function(value)
+							zk.new({ dir = "meetings", title = value })
+						end, popup_custom("Meeting Name"))
 					end,
 					"Create new meeting note",
 				},
-				{ prefix = "<leader>" },
+				n = {
+					function()
+						zk_popup(function(value)
+							zk.new({ dir = "", title = value })
+						end, popup_custom("Title"))
+					end,
+					"Create new note",
+				},
+				o = { "<cmd>ZkNotes { sort = { 'modified' } }<cr>", "Open note picker" },
+				t = { "<cmd>ZkTags<cr>", "Note picker by tag" },
+				["<space>"] = { "<cmd>ZkTodo<cr>", "Open todo note" },
 			},
-		})
+		}, { prefix = "<leader>", noremap = true, silent = false })
 	end,
 }
