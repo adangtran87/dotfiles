@@ -25,6 +25,7 @@ return {
 		})
 
 		local commands = require("zk.commands")
+
 		local function make_edit_fn(defaults, picker_options)
 			return function(options)
 				options = vim.tbl_extend("force", defaults, options or {})
@@ -32,5 +33,13 @@ return {
 			end
 		end
 		commands.add("ZkOrphans", make_edit_fn({ orphan = true }, { title = "Zk Orphans" }))
+
+		commands.add("ZkDaily", function()
+			zk.new({ dir = "daily" }, {})
+		end)
+
+		commands.add("ZkTodo", function()
+			zk.new({ title = "TODO.md" }, {})
+		end)
 	end,
 }
