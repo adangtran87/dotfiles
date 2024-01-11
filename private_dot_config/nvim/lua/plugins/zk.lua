@@ -98,6 +98,10 @@ return {
 			zk.new({ dir = "meetings", title = note_name })
 		end)
 
+		commands.add("ZkWeekly", function()
+			zk.new({ dir = "weekly" })
+		end)
+
 		local wk = require("which-key")
 		wk.register({
 			z = {
