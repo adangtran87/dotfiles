@@ -8,4 +8,8 @@ Attendees: @adangtran
 
 ## Agenda
 
+
+## Notes
+
+## TODO
 ## Conclusions
