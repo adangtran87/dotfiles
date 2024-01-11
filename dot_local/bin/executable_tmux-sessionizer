@@ -15,6 +15,14 @@ fi
 
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
+if [[ -L "${selected}" ]]; then
+	if [[ -e "${selected}" ]]; then
+		selected=$(realpath ${selected})
+	else
+		echo "$selected is a broken symlink"
+		exit 1
+	fi
+fi
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
 	tmux new-session -s $selected_name -c $selected
