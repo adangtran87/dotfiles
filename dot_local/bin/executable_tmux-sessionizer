@@ -5,7 +5,6 @@ if [[ $# -eq 1 ]]; then
 else
 	tmux list-sessions 2>/dev/null | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" >/tmp/tmux-sessionizer
 	find ~/personal ~/work -mindepth 1 -maxdepth 1 -type l,d 2>/dev/null >>/tmp/tmux-sessionizer
-	find ~/.dotfiles -maxdepth 0 -type d >>/tmp/tmux-sessionizer
 	selected=$(cat /tmp/tmux-sessionizer | fzf)
 fi
 
