@@ -1,5 +1,6 @@
 return {
 	{ "akinsho/bufferline.nvim", enabled = false },
+	{ "echasnovski/mini.pairs", enabled = false },
 	{
 		"alexghergh/nvim-tmux-navigation",
 		config = function()
