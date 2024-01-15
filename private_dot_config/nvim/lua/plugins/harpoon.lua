@@ -6,7 +6,7 @@ return {
 		local harpoon = require("harpoon")
 
 		-- REQUIRED
-		harpoon:setup()
+		harpoon:setup({})
 		-- REQUIRED
 
 		-- Toggle previous & next buffers stored within Harpoon list
