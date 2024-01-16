@@ -1,3 +1,6 @@
+-- Remove lazyvim keymaps
+vim.keymap.del({ "n", "i", "v" }, "<A-j>")
+vim.keymap.del({ "n", "i", "v" }, "<A-k>")
 -- Fast write
 vim.keymap.set("n", "<leader>W", ":w<cr>", { desc = "Fast write" })
 
