@@ -7,6 +7,10 @@ vim.keymap.set("n", "<C-j>", "<cmd>NvimTmuxNavigateDown<cr>", { silent = true })
 vim.keymap.set("n", "<C-k>", "<cmd>NvimTmuxNavigateUp<cr>", { silent = true })
 vim.keymap.set("n", "<C-l>", "<cmd>NvimTmuxNavigateRight<cr>", { silent = true })
 
+-- better indenting
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+
 local wk = require("which-key")
 wk.register({
 	["<leader>-"] = { ":Oil<cr>", "Oil" },
