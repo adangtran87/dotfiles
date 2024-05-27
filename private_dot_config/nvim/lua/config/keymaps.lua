@@ -13,14 +13,21 @@ vim.keymap.set("v", ">", ">gv")
 
 local wk = require("which-key")
 wk.register({
-	["<leader>-"] = { ":Oil<cr>", "Oil" },
-	["<leader>W"] = { ":w<cr>", "Fast write" },
-	["<leader>L"] = { ":Lazy<cr>", "lazy", noremap = true },
-	["<leader>w"] = {
-		name = "+window",
-		s = { "<cmd>split<cr>", "Split Horizontal" },
-		v = { "<cmd>vsplit<cr>", "Split Vertical" },
-		["="] = { "<C-w>=", "Equal Size Splits" },
-		m = { "<cmd>MaximizerToggle<cr>", "Maximize Split" },
-	},
+  ["<leader>-"] = { ":Oil<cr>", "Oil" },
+  ["<leader>W"] = { ":w<cr>", "Fast write" },
+  ["<leader>L"] = { ":Lazy<cr>", "lazy", noremap = true },
+  ["<leader>w"] = {
+    name = "+window",
+    ["="] = { "<C-w>=", "Equal Size Splits" },
+    m = { "<cmd>MaximizerToggle<cr>", "Maximize Split" },
+    v = { "<cmd>vsplit<cr>", "Split Vertical" },
+    s = { "<cmd>split<cr>", "Split Horizontal" },
+  },
+  ["<leader>d"] = {
+    name = "+diff",
+    g = { "<cmd>diffget<cr>", "[d]iff [g]et" },
+    o = { "<cmd>windo diffoff<cr>", "[d]iff [o]ff" },
+    p = { "<cmd>diffput<cr>", "[d]iff [p]ut" },
+    d = { "<cmd>windo diffthis<cr>", "[d]iff splits" },
+  }
 })
