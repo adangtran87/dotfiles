@@ -9,7 +9,8 @@ return {
       })
     end,
   },
-  { "mbbill/undotree",
+  {
+    "mbbill/undotree",
     config = function()
       local wk = require("which-key")
       wk.register({
@@ -17,4 +18,5 @@ return {
       })
     end,
   },
+  -- { "tpope/vim-sleuth" },
 }

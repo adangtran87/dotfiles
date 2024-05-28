@@ -20,8 +20,9 @@ wk.register({
     name = "+window",
     ["="] = { "<C-w>=", "Equal Size Splits" },
     m = { "<cmd>MaximizerToggle<cr>", "Maximize Split" },
-    v = { "<cmd>vsplit<cr>", "Split Vertical" },
+    o = { "<C-w>o", "Cl[o]se splits" },
     s = { "<cmd>split<cr>", "Split Horizontal" },
+    v = { "<cmd>vsplit<cr>", "Split Vertical" },
   },
   ["<leader>d"] = {
     name = "+diff",
