@@ -12,6 +12,7 @@ opt.ignorecase = true -- Ignore case
 opt.inccommand = "split"
 opt.laststatus = 3 -- global statusline
 opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 opt.mouse = "a"
 opt.number = true
 opt.relativenumber = true

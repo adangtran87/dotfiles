@@ -11,6 +11,10 @@ vim.keymap.set("n", "<C-l>", "<cmd>NvimTmuxNavigateRight<cr>", { silent = true }
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
+-- Quickfix nav
+vim.keymap.set("n", "<C-L>", "<cmd>cnext<cr>", { silent = true })
+vim.keymap.set("n", "<C-K>", "<cmd>cprev<cr>", { silent = true })
+
 local wk = require("which-key")
 wk.register({
 	["<leader>-"] = { ":Oil<cr>", "Oil" },
