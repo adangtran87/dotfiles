@@ -9,7 +9,7 @@ opt.cursorline = true -- Enable highlighting of the current line
 opt.expandtab = true -- Use spaces instead of tabs
 opt.ignorecase = true -- Ignore case
 -- Preview substitutions live, as you type!
-opt.inccommand = 'split'
+opt.inccommand = "split"
 opt.laststatus = 3 -- global statusline
 opt.list = true
 opt.mouse = "a"
@@ -21,7 +21,7 @@ opt.shiftwidth = 2
 opt.showmode = false
 opt.signcolumn = "yes"
 -- Preview substitutions live, as you type!
-opt.inccommand = 'split'
+opt.inccommand = "split"
 opt.softtabstop = 2
 opt.spelllang = { "en" }
 opt.splitbelow = true -- Put new windows below current
@@ -40,4 +40,3 @@ vim.g.autoformat = true
 vim.g.markdown_recommended_style = 0
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
-
