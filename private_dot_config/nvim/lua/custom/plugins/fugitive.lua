@@ -8,7 +8,7 @@ return {
 					name = "+git",
 					b = { ":Gblame<cr>", "blame" },
 					d = { ":Gdiff<cr>", "diff" },
-					s = { ":Git<cr>", "status" },
+					s = { ":aboveleft Git<cr>", "status" },
 				},
 			})
 		end,
