@@ -10,10 +10,10 @@ return {
 		-- REQUIRED
 
 		-- Toggle previous & next buffers stored within Harpoon list
-		vim.keymap.set("n", "<C-i>", function()
+		vim.keymap.set("n", "<C-I>", function()
 			harpoon:list():prev()
 		end)
-		vim.keymap.set("n", "<C-o>", function()
+		vim.keymap.set("n", "<C-O>", function()
 			harpoon:list():next()
 		end)
 
@@ -23,7 +23,7 @@ return {
 				name = "harpoon",
 				a = {
 					function()
-						harpoon:list():append()
+						harpoon:list():add()
 					end,
 					"Add file",
 				},
