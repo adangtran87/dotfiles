@@ -12,17 +12,16 @@ opt.ignorecase = true -- Ignore case
 opt.inccommand = "split"
 opt.laststatus = 3 -- global statusline
 opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 opt.mouse = "a"
 opt.number = true
+opt.pumheight = 10
 opt.relativenumber = true
 -- Minimal number of screen lines to keep above and below the cursor.
 opt.scrolloff = 10
 opt.shiftwidth = 2
 opt.showmode = false
 opt.signcolumn = "yes"
--- Preview substitutions live, as you type!
-opt.inccommand = "split"
 opt.softtabstop = 2
 opt.spelllang = { "en" }
 opt.splitbelow = true -- Put new windows below current
