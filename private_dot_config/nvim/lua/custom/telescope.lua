@@ -57,6 +57,7 @@ require("telescope").setup({
 
 -- keybinds
 local wk = require("which-key")
+local builtin = require("telescope.builtin")
 wk.register({
 	["<leader> "] = { ":Telescope find_files<cr>", "Telescope files" },
 	["<leader>,"] = { ":Telescope buffers<cr>", "Telescope buffers" },
@@ -73,5 +74,9 @@ wk.register({
 		t = { "<cmd>TodoTelescope<cr>", "Todo" },
 		T = { "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", "Todo/Fix/Fixme" },
 		w = { "<cmd>Telescope grep_string<cr>", "word under cursor" },
+	},
+	["<leader>v"] = {
+		name = "+vim",
+		h = { builtin.help_tags, "vim help tags" },
 	},
 })
