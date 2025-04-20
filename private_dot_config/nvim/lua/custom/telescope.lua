@@ -58,25 +58,21 @@ require("telescope").setup({
 -- keybinds
 local wk = require("which-key")
 local builtin = require("telescope.builtin")
-wk.register({
-	["<leader> "] = { ":Telescope find_files<cr>", "Telescope files" },
-	["<leader>,"] = { ":Telescope buffers<cr>", "Telescope buffers" },
-	["<leader>s"] = {
-		name = "+search",
-		b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "buffer find" },
-		c = { "<cmd>Telescope commands<cr>", "Commands" },
-		g = { "<cmd>Telescope live_grep<cr>", "grep" },
-		G = { "<cmd>Telescope live_grep_args<cr>", "grep w/ args" },
-		h = { "<cmd>Telescope command_history<cr>", "Command History" },
-		r = { "<cmd>Telescope registers<cr>", "Registers" },
-		s = { "<cmd>Telescope git_files<cr>", "git files" },
-		S = { "<cmd>Telescope spell_suggest<cr>", "Spelling" },
-		t = { "<cmd>TodoTelescope<cr>", "Todo" },
-		T = { "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", "Todo/Fix/Fixme" },
-		w = { "<cmd>Telescope grep_string<cr>", "word under cursor" },
-	},
-	["<leader>v"] = {
-		name = "+vim",
-		h = { builtin.help_tags, "vim help tags" },
-	},
+wk.add({
+	{ "<leader> ", ":Telescope find_files<cr>", desc = "Telescope files" },
+	{ "<leader>,", ":Telescope buffers<cr>", desc = "Telescope buffers" },
+	{ "<leader>s", group = "search" },
+	{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "buffer find" },
+	{ "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },
+	{ "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "grep" },
+	{ "<leader>sG", "<cmd>Telescope live_grep_args<cr>", desc = "grep w/ args" },
+	{ "<leader>sh", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+	{ "<leader>sr", "<cmd>Telescope registers<cr>", desc = "Registers" },
+	{ "<leader>ss", "<cmd>Telescope git_files<cr>", desc = "git files" },
+	{ "<leader>sS", "<cmd>Telescope spell_suggest<cr>", desc = "Spelling" },
+	{ "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+	{ "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+	{ "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "word under cursor" },
+	{ "<leader>v", group = "vim" },
+	{ "<leader>vh", builtin.help_tags, desc = "vim help tags" },
 })

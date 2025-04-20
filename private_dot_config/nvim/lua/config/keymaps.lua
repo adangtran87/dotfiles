@@ -12,27 +12,23 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- Quickfix nav
-vim.keymap.set("n", "<C-L>", "<cmd>cnext<cr>", { silent = true })
-vim.keymap.set("n", "<C-K>", "<cmd>cprev<cr>", { silent = true })
+-- vim.keymap.set("n", "<C-L>", "<cmd>cnext<cr>", { silent = true })
+-- vim.keymap.set("n", "<C-K>", "<cmd>cprev<cr>", { silent = true })
 
 local wk = require("which-key")
-wk.register({
-	["<leader>-"] = { ":Oil<cr>", "Oil" },
-	["<leader>W"] = { ":w<cr>", "Fast write" },
-	["<leader>L"] = { ":Lazy<cr>", "lazy", noremap = true },
-	["<leader>w"] = {
-		name = "+window",
-		["="] = { "<C-w>=", "Equal Size Splits" },
-		m = { "<cmd>MaximizerToggle<cr>", "Maximize Split" },
-		o = { "<C-w>o", "Cl[o]se splits" },
-		s = { "<cmd>split<cr>", "Split Horizontal" },
-		v = { "<cmd>vsplit<cr>", "Split Vertical" },
-	},
-	["<leader>d"] = {
-		name = "+diff",
-		g = { "<cmd>diffget<cr>", "[d]iff [g]et" },
-		o = { "<cmd>windo diffoff<cr>", "[d]iff [o]ff" },
-		p = { "<cmd>diffput<cr>", "[d]iff [p]ut" },
-		d = { "<cmd>windo diffthis<cr>", "[d]iff splits" },
-	},
+wk.add({
+	{ "<leader>-", ":Oil<cr>", desc = "Oil" },
+	{ "<leader>W", ":w<cr>", desc = "Fast write" },
+	{ "<leader>L", ":Lazy<cr>", desc = "lazy", noremap = true },
+	{ "<leader>w", group = "window" },
+	{ "<leader>=", "<C-w>=", desc = "Equal Size Splits" },
+	{ "<leader>wm", "<cmd>MaximizerToggle<cr>", desc = "Maximize Split" },
+	{ "<leader>wo", "<C-w>o", desc = "Cl[o]se splits" },
+	{ "<leader>ws", "<cmd>split<cr>", desc = "Split Horizontal" },
+	{ "<leader>wv", "<cmd>vsplit<cr>", desc = "Split Vertical" },
+	{ "<leader>d", group = "desc" },
+	{ "<leader>dg", "<cmd>descget<cr>", desc = "[d]iff [g]et" },
+	{ "<leader>do", "<cmd>windo descoff<cr>", desc = "[d]iff [o]ff" },
+	{ "<leader>dp", "<cmd>descput<cr>", desc = "[d]iff [p]ut" },
+	{ "<leader>dd", "<cmd>windo descthis<cr>", desc = "[d]iff splits" },
 })

@@ -13,8 +13,8 @@ return {
 		"mbbill/undotree",
 		config = function()
 			local wk = require("which-key")
-			wk.register({
-				["<leader>u"] = { ":UndotreeToggle<cr>", "Undotree" },
+			wk.add({
+				{ "<leader>u", ":UndotreeToggle<cr>", desc = "Undotree" },
 			})
 		end,
 	},

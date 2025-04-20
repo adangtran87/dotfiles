@@ -103,7 +103,7 @@ return {
 		end)
 
 		local wk = require("which-key")
-		wk.register({
+		wk.add({
 			z = {
 				name = "zk",
 				d = { "<cmd>ZkDaily<cr>", "Open daily note" },

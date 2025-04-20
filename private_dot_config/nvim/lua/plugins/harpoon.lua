@@ -10,15 +10,15 @@ return {
 		-- REQUIRED
 
 		-- Toggle previous & next buffers stored within Harpoon list
-		vim.keymap.set("n", "<C-i>", function()
+		vim.keymap.set("n", "<C-n>", function()
 			harpoon:list():prev()
 		end)
-		vim.keymap.set("n", "<C-o>", function()
+		vim.keymap.set("n", "<C-m>", function()
 			harpoon:list():next()
 		end)
 
 		local wk = require("which-key")
-		wk.register({
+		wk.add({
 			h = {
 				name = "harpoon",
 				a = {
